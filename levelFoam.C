@@ -38,40 +38,19 @@ int main(int argc, char *argv[])
     #include "setRootCase.H"
     #include "createTime.H"
     #include "createMesh.H"
+    #include "createFields.H"
+    #include "compressibleCreatePhi.H"
+    //#include "createPhi.H"
+    #include "initContinuityErrs.H"
+    #include "readTimeControls.H"
+    #include "compressibleCourantNo.H"
+    #include "setInitialDeltaT.H"
 
-    Info<< "Reading field p\n" << endl;
-    volScalarField p
-    (
-        IOobject
-        (
-            "p",
-            runTime.timeName(),
-            mesh,
-            IOobject::MUST_READ,
-            IOobject::AUTO_WRITE
-        ),
-        mesh
-    );
-
-    Info<< "Reading field U\n" << endl;
-    volVectorField U
-    (
-        IOobject
-        (
-            "U",
-            runTime.timeName(),
-            mesh,
-            IOobject::MUST_READ,
-            IOobject::AUTO_WRITE
-        ),
-        mesh
-    );
-
-    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+   // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
     while (runTime.run())
     {
-      runTime++;
       Info<< "Time = " << runTime.timeName() << nl << endl;
+      runTime++;
     }
 
     Info<< "\nEnd\n" << endl;
