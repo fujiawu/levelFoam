@@ -1,19 +1,40 @@
     
-    Info<< "Reading transportProperties\n" << endl;
-    IOdictionary transportProperties
+    Info<< "Reading constants\n" << endl;
+    IOdictionary globalConstants
     (
         IOobject
         (
-            "transportProperties",
+            "globalConstants",
             runTime.constant(),
             mesh,
             IOobject::MUST_READ_IF_MODIFIED,
             IOobject::NO_WRITE
         )
     );
+
+    Info<< "Reading kinematic viscosity nu\n" << endl;
     dimensionedScalar nu
     (
-        transportProperties.lookup("nu")
+        globalConstants.lookup("nu")
+    );
+
+    Info<< "Reading Schmidt number sc\n" << endl;
+    dimensionedScalar sc
+    (
+
+        globalConstants.lookup("sc")
+    );
+
+    Info<< "Reading Lewis number le\n" << endl;
+    dimensionedScalar le
+    (
+        globalConstants.lookup("le")
+    );
+     
+    Info<< "Reading thermal expansion ratio theta\n" << endl;
+    dimensionedScalar theta
+    (
+        globalConstants.lookup("theta")
     );
 
     Info<< "Reading field p\n" << endl;
@@ -31,7 +52,7 @@
     );
 
     Info<< "Reading field c\n" << endl;
-    volScalarField rho
+    volScalarField c
     (
         IOobject
         (
@@ -58,4 +79,32 @@
         mesh
     );
 
+   Info<< "Creating field psi\n" << endl;
+    volScalarField psi
+    (
+       IOobject
+       (
+           "psi",
+           runTime.timeName(),
+           mesh,
+           IOobject::NO_READ,
+           IOobject::NO_WRITE
+       ),
+       Psi(c,theta)
+    );
 
+    Info<< "Creating field rho\n" << endl;
+    volScalarField rho
+    (
+       IOobject
+       (
+           "rho",
+           runTime.timeName(),
+           mesh,
+           IOobject::NO_READ,
+           IOobject::AUTO_WRITE
+       ),
+       Rho(p,psi)
+    );
+
+ 

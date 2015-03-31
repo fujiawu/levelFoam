@@ -1,0 +1,30 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// kinematic viscosity
+nu              nu [ 0 2 -1 0 0 0 0 ] 0.2;
+
+// Schmidt number
+sc              sc [ 0 0 0 0 0 0 0 ] 1;
+
+// Lewis number
+le              le [ 0 0 0 0 0 0 0 ] 1;
+
+// Thermal expansion ratio, rho_u/rho_b = T_b/T_u
+theta           theta [ 0 0 0 0 0 0 0 ] 5;
+
+// ************************************************************************* //

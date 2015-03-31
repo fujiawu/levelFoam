@@ -615,11 +615,13 @@ levelFoam.dep: $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCase.H
 levelFoam.dep: $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H
 levelFoam.dep: $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createMesh.H
 levelFoam.dep: createFields.H
-levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createPhi.H
+levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/compressibleCreatePhi.H
 levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/initContinuityErrs.H
 levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/readTimeControls.H
 levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/compressibleCourantNo.H
 levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/setInitialDeltaT.H
+levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/readPISOControls.H
+levelFoam.dep: $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/setDeltaT.H
 $(OBJECTS_DIR)/levelFoam.o: $(EXE_DEP)
 $(OBJECTS_DIR)/levelFoam.o:
 	@SOURCE_DIR=.
