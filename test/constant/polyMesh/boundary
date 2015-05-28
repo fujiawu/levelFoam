@@ -15,14 +15,35 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-2
+5
 (
-    outflowBoundaries
+    top
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          1200;
+        nFaces          100;
         startFace       99400;
+    }
+    bottom
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          100;
+        startFace       99500;
+    }
+    left
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          500;
+        startFace       99600;
+    }
+    right
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          500;
+        startFace       100100;
     }
     frontAndBack
     {

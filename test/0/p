@@ -20,12 +20,24 @@ internalField   uniform 101325;
 
 boundaryField
 {
-
-    outflowBoundaries
+    top
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 101325;
     }
-
+    bottom
+    {
+        type            fixedValue;
+        value           uniform 101325;
+    }
+    left
+    {
+        type            symmetryPlane;
+    }
+    right
+    {
+        type            symmetryPlane;
+    }
     frontAndBack
     {
         type            empty;
